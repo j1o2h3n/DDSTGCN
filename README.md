@@ -1,3 +1,16 @@
 # DDSTGCN
 
-The code is being sorted out and will be made public later.
+The code is still being sorted out, and a more complete version will be released later.
+
+## Requirements
+
+- python 3
+- numpy
+- torch
+
+## Train Commands
+
+```
+python train.py
+```
+
