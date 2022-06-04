@@ -2,8 +2,6 @@
 
 『The code is still being sorted out, and a more complete version will be released later』
 
-The upload of the data set is incomplete. I have been busy recently, and I will add it later.
-
 ## Requirements
 
 - python 3
@@ -16,3 +14,6 @@ The upload of the data set is incomplete. I have been busy recently, and I will 
 python train.py
 ```
 
+### Dataset
+
+Dataset URL:https://drive.google.com/drive/folders/1Zo1nbjo4rw2F_7Uhu4g9QIB8XJtdUcGF?usp=sharing Key:kzey
