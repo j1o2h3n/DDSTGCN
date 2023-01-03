@@ -19,7 +19,15 @@ To run different datasets, you need to modify the relevant parameters of the dat
 
 ### Dataset
 
-<!--六个数据集基本信息--data --adjdata --in_dim --num_nodes-->
+|  Dataset |     --data    |           --adjdata          | --in_dim | --num_nodes |
+|:--------:|:-------------:|:----------------------------:|:--------:|:-----------:|
+|  METR-LA |  data/METR-LA |    data/METR-LA/adj_mx.pkl   |     2    |     207     |
+| PEMS-BAY | data/PEMS-BAY | data/PEMS-BAY/adj_mx_bay.pkl |     1    |     325     |
+|  PEMS03  |  data/PEMS03  |  data/PEMS03/adj_pems03.pkl  |     1    |     358     |
+|  PEMS04  |  data/PEMS04  |  data/PEMS04/adj_pems04.pkl  |     1    |     307     |
+|  PEMS07  |  data/PEMS07  |  data/PEMS07/adj_pems07.pkl  |     1    |     883     |
+|  PEMS08  |  data/PEMS08  |  data/PEMS08/adj_pems08.pkl  |     1    |     170     |
+
 Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM4T2DS?usp=sharing
 
 
@@ -43,10 +51,3 @@ author={Sun, Yanfeng and Jiang, Xiangheng and Hu, Yongli and Duan, Fuqing and Gu
    doi={10.1109/TITS.2022.3208943}
 }
 ```
-| 1 |   |   |   |   |
-|---|---|---|---|---|
-| 2 |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
