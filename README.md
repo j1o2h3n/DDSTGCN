@@ -17,7 +17,10 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 
 ```
 python train.py
+or
+python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
 ```
+
 To run different datasets, you need to modify the relevant parameters of the dataset, including '--data', '--adjdata', '--in_dim' and '--num_nodes'. The default is METR-LA dataset.
 
 
@@ -26,7 +29,7 @@ To run different datasets, you need to modify the relevant parameters of the dat
 |  Dataset |     --data    |           --adjdata          | --in_dim | --num_nodes |
 |:--------:|:-------------:|:----------------------------:|:--------:|:-----------:|
 |  METR-LA |  data/METR-LA |    data/METR-LA/adj_mx.pkl   |     2    |     207     |
-| PEMS-BAY | data/PEMS-BAY | data/PEMS-BAY/adj_mx_bay.pkl |     1    |     325     |
+| PEMS-BAY | data/PEMS-BAY | data/PEMS-BAY/adj_mx_bay.pkl |     2    |     325     |
 |  PEMS03  |  data/PEMS03  |  data/PEMS03/adj_pems03.pkl  |     1    |     358     |
 |  PEMS04  |  data/PEMS04  |  data/PEMS04/adj_pems04.pkl  |     1    |     307     |
 |  PEMS07  |  data/PEMS07  |  data/PEMS07/adj_pems07.pkl  |     1    |     883     |
