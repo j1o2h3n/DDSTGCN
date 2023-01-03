@@ -3,7 +3,7 @@
 Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction](https://ieeexplore.ieee.org/document/9912360)," in IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 12, pp. 23680-23693, Dec. 2022, doi: 10.1109/TITS.2022.3208943.
 
 <p align="center">
-  <img width="826" height="303" src=./docs/picture.jpg>
+  <img width="743" height="273" src=./fig/picture.jpg>
 </p>
 
 
