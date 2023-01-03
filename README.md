@@ -14,7 +14,7 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 ```
 python train.py
 ```
-To run different datasets, you need to modify the relevant parameters of the dataset, including '--data', '--adjdata', '--in_dim', '--num_nodes'. The default is METR-LA dataset.
+To run different datasets, you need to modify the relevant parameters of the dataset, including '--data', '--adjdata', '--in_dim' and '--num_nodes'. The default is METR-LA dataset.
 
 
 ### Dataset
