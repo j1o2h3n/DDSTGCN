@@ -21,3 +21,20 @@ To run different datasets, you need to modify the relevant parameters of the dat
 
 <!--六个数据集基本信息--data --adjdata --in_dim --num_nodes-->
 Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM4T2DS?usp=sharing
+
+
+
+### Citation
+If you find this repo useful in your research, you should cite this paper
+
+```bibtex
+@ARTICLE{jiang2022ddstgcn,  
+author={Sun, Yanfeng and Jiang, Xiangheng and Hu, Yongli and Duan, Fuqing and Guo, Kan and Wang, Boyue and Gao, Junbin and Yin, Baocai},  
+journal={IEEE Transactions on Intelligent Transportation Systems},   
+title={Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction},   
+year={2022},  
+volume={23},  
+number={12},  
+pages={23680-23693},  
+doi={10.1109/TITS.2022.3208943}}
+```
