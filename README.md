@@ -28,7 +28,7 @@ This repo is under [MIT license](LICENSE).
 
 
 ### Citation
-If you find this repo useful in your research, you should cite this paper
+If you find this repo useful in your research, please cite the following in your manuscript:
 
 ```bibtex
 @ARTICLE{sun2022dual,
