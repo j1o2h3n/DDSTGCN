@@ -7,6 +7,62 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 </p>
 
 
+## Code Architecture
+
+```
+  DDSTGCN
+    │  train.py
+    │  engine.py
+    │  model.py
+    │  util.py
+    │  README.md
+    │  LICENSE
+    │
+    ├─data
+    │  ├─METR-LA
+    │  │      adj_mx.pkl
+    │  │      train.npz
+    │  │      val.npz
+    │  │      test.npz
+    │  │
+    │  ├─PEMS-BAY
+    │  │      adj_mx_bay.pkl
+    │  │      train.npz
+    │  │      val.npz
+    │  │      test.npz
+    │  │
+    │  ├─PEMS03
+    │  │      adj_pems03.pkl
+    │  │      train.npz
+    │  │      val.npz
+    │  │      test.npz
+    │  │
+    │  ├─PEMS04
+    │  │      adj_pems04.pkl
+    │  │      train.npz
+    │  │      val.npz
+    │  │      test.npz
+    │  │
+    │  ├─PEMS07
+    │  │      adj_pems07.pkl
+    │  │      train.npz
+    │  │      val.npz
+    │  │      test.npz
+    │  │
+    │  └─PEMS08
+    │          adj_pems08.pkl
+    │          train.npz
+    │          val.npz
+    │          test.npz
+    │
+    ├─fig
+    │      picture.jpg
+    │
+    └─garage
+            null
+```
+
+
 ## Requirements
 
 - python 3
@@ -41,12 +97,12 @@ Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM
 
 
 ## License
-This repo is under [MIT license](LICENSE).
+This project is under [MIT license](LICENSE).
 
 
 
 ## Citation
-If you find this repo useful in your research, please cite the following in your manuscript:
+If you find this code or paper useful in your research, please cite the following in your manuscript:
 
 ```bibtex
 @ARTICLE{sun2022dual,
