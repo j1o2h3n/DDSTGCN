@@ -100,7 +100,7 @@ Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM
 
 Copyright (C) 2022 Jiang Xiangheng.
 
-Licensed under the [MIT license](LICENSE).
+This project is under the [MIT license](LICENSE).
 
 
 
