@@ -98,10 +98,15 @@ Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM
 
 ## License
 
-Copyright (C) 2022 Jiang Xiangheng jiangxiangheng[at]gmail[dot]com
+Copyright (C) 2022 Jiang Xiangheng.
 
 Licensed under the [MIT license](LICENSE).
 
+
+
+## Contact
+
+jiangxiangheng[at]gmail[dot]com
 
 
 ## Citation
