@@ -97,7 +97,10 @@ Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM
 
 
 ## License
-This project is under [MIT license](LICENSE).
+
+Copyright (C) 2022 Jiang Xiangheng jiangxiangheng[at]gmail[dot]com
+
+Licensed under the [MIT license](LICENSE).
 
 
 
