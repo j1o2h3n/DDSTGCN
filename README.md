@@ -110,10 +110,10 @@ jiangxiangheng[at]gmail[dot]com
 
 
 ## Citation
-If you find this code or paper useful in your research, please cite the following in your manuscript:
+If this work is helpful for your research, please consider citing the following BibTeX entry in your manuscript:
 
 ```bibtex
-@ARTICLE{sun2022dual,
+@article{sun2022dual,
    author={Sun, Yanfeng and Jiang, Xiangheng and Hu, Yongli and Duan, Fuqing and Guo, Kan and Wang, Boyue and Gao, Junbin and Yin, Baocai},
    journal={IEEE Transactions on Intelligent Transportation Systems},
    title={Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction},
