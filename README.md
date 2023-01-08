@@ -17,10 +17,11 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 ```
 python train.py
 ```
-OR
+or
 ```
 python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
 ```
+
 
 To run different datasets, you need to modify the relevant parameters of the dataset, including `--data`, `--adjdata`, `--in_dim` and `--num_nodes`. The default is METR-LA dataset.
 
