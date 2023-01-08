@@ -10,8 +10,7 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 ## Requirements
 
 - python 3
-- numpy
-- torch
+- see `[requirements.txt](requirements.txt)`
 
 ## Train Commands
 
@@ -37,7 +36,7 @@ To run different datasets, you need to modify the relevant parameters of the dat
 |  PEMS07  |  data/PEMS07  |  data/PEMS07/adj_pems07.pkl  |     1    |     883     |
 |  PEMS08  |  data/PEMS08  |  data/PEMS08/adj_pems08.pkl  |     1    |     170     |
 
-Dataset URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM4T2DS?usp=sharing
+Download the datasets from Google Drive URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM4T2DS?usp=sharing
 
 
 ### Code Architecture
