@@ -14,6 +14,17 @@ class nconv(nn.Module):
         return x.contiguous()
 
 
+class d_nconv(nn.Module):
+    def __init__(self):
+        super(d_nconv, self).__init__()
+
+    def forward(self, x, A):
+        x = torch.einsum('ncwl,nvw->ncvl', (x, A))
+        return x.contiguous()
+
+
+
+
 class linear(nn.Module):
     def __init__(self, c_in, c_out):
         super(linear, self).__init__()
@@ -23,14 +34,16 @@ class linear(nn.Module):
         return self.mlp(x)
 
 
-class linear_1(nn.Module):
+class linear_(nn.Module):
     def __init__(self, c_in, c_out):
-        super(linear_1, self).__init__()
+        super(linear_, self).__init__()
         self.mlp = torch.nn.Conv2d(c_in, c_out, kernel_size=(1, 2), dilation=2, padding=(0, 0), stride=(1, 1),
                                    bias=True)
 
     def forward(self, x):
         return self.mlp(x)
+
+
 
 
 class gcn(nn.Module):
@@ -55,6 +68,32 @@ class gcn(nn.Module):
         h = self.mlp(h)
         h = F.dropout(h, self.dropout, training=self.training)
         return h
+
+
+class dgcn(nn.Module):
+    def __init__(self, c_in, c_out, dropout, order=2):
+        super(dgcn, self).__init__()
+        self.d_nconv = d_nconv()
+        c_in = (order * 3 + 1) * c_in
+        self.mlp = linear_(c_in, c_out)
+        self.dropout = dropout
+        self.order = order
+
+    def forward(self, x, support):
+        out = [x]
+        for a in support:
+            x1 = self.d_nconv(x, a)
+            out.append(x1)
+            for k in range(2, self.order + 1):
+                x2 = self.d_nconv(x1, a)
+                out.append(x2)
+                x1 = x2
+        h = torch.cat(out, dim=1)
+        h = self.mlp(h)
+        h = F.dropout(h, self.dropout, training=self.training)
+        return h
+
+
 
 
 class hgcn(nn.Module):
@@ -82,9 +121,61 @@ class hgcn(nn.Module):
         return h
 
 
-class Spatial_Attention_layer(nn.Module):
+class hgcn_edge_At(nn.Module):
+    def __init__(self, c_in, c_out, dropout, order=1):
+        super(hgcn_edge_At, self).__init__()
+        self.nconv = nconv()
+        c_in = (order + 1) * c_in
+        self.mlp = linear(c_in, c_out)
+        self.dropout = dropout
+        self.order = order
+
+    def forward(self, x, G):
+        out = [x]
+        support = [G]
+        for a in support:
+            x1 = self.nconv(x, a)
+            out.append(x1)
+            for k in range(2, self.order + 1):
+                x2 = self.nconv(x1, a)
+                out.append(x2)
+                x1 = x2
+        h = torch.cat(out, dim=1)
+        h = self.mlp(h)
+        h = F.dropout(h, self.dropout, training=self.training)
+        return h
+
+
+class dhgcn(nn.Module):
+    def __init__(self, c_in, c_out, dropout, order=2):
+        super(dhgcn, self).__init__()
+        self.d_nconv = d_nconv()
+        c_in = (order + 1) * c_in
+        self.mlp = linear_(c_in, c_out)
+        self.dropout = dropout
+        self.order = order
+
+    def forward(self, x, G):
+        out = [x]
+        support = [G]
+        for a in support:
+            x1 = self.d_nconv(x, a)
+            out.append(x1)
+            for k in range(2, self.order + 1):
+                x2 = self.d_nconv(x1, a)
+                out.append(x2)
+                x1 = x2
+        h = torch.cat(out, dim=1)
+        h = self.mlp(h)
+        h = F.dropout(h, self.dropout, training=self.training)
+        return h
+
+
+
+
+class spatial_attention_layer(nn.Module):
     def __init__(self, in_channels, num_of_timesteps, num_of_edge, num_of_vertices):
-        super(Spatial_Attention_layer, self).__init__()
+        super(spatial_attention_layer, self).__init__()
         self.W1 = nn.Parameter(torch.randn(num_of_timesteps).cuda(), requires_grad=True).cuda()
         self.W2 = nn.Parameter(torch.randn(num_of_timesteps).cuda(), requires_grad=True).cuda()
         self.W3 = nn.Parameter(torch.randn(in_channels,int(in_channels/2)).cuda(), requires_grad=True).cuda()
@@ -103,105 +194,8 @@ class Spatial_Attention_layer(nn.Module):
         return S
 
 
-class w_nconv(nn.Module):
-    def __init__(self):
-        super(w_nconv, self).__init__()
-
-    def forward(self, x, A):
-        x = torch.einsum('ncwl,nvw->ncvl', (x, A))
-        return x.contiguous()
 
 
-class wgcn(nn.Module):
-    def __init__(self, c_in, c_out, dropout, order=2):
-        super(wgcn, self).__init__()
-        self.w_nconv = w_nconv()
-        c_in = (order * 3 + 1) * c_in
-        self.mlp = linear_1(c_in, c_out)
-        self.dropout = dropout
-        self.order = order
-
-    def forward(self, x, support):
-        out = [x]
-        for a in support:
-            x1 = self.w_nconv(x, a)
-            out.append(x1)
-            for k in range(2, self.order + 1):
-                x2 = self.w_nconv(x1, a)
-                out.append(x2)
-                x1 = x2
-        h = torch.cat(out, dim=1)
-        h = self.mlp(h)
-        h = F.dropout(h, self.dropout, training=self.training)
-        return h
-
-
-class un_nconv_edge_At(nn.Module):
-    def __init__(self):
-        super(un_nconv_edge_At, self).__init__()
-
-    def forward(self, x, A):
-        x = torch.einsum('bfnd,mn->bfmd', (x, A))
-        return x.contiguous()
-
-
-class hgcn_edge_At(nn.Module):
-    def __init__(self, c_in, c_out, dropout, order=1):
-        super(hgcn_edge_At, self).__init__()
-        self.un_nconv_edge_At = un_nconv_edge_At()
-        c_in = (order + 1) * c_in
-        self.mlp = linear(c_in, c_out)
-        self.dropout = dropout
-        self.order = order
-
-    def forward(self, x, G):
-        out = [x]
-        support = [G]
-        for a in support:
-            x1 = self.un_nconv_edge_At(x, a)
-            out.append(x1)
-            for k in range(2, self.order + 1):
-                x2 = self.un_nconv_edge_At(x1, a)
-                out.append(x2)
-                x1 = x2
-        h = torch.cat(out, dim=1)
-        h = self.mlp(h)
-        h = F.dropout(h, self.dropout, training=self.training)
-        return h
-
-
-class d_un_nconv(nn.Module):
-    def __init__(self):
-        super(d_un_nconv, self).__init__()
-
-    def forward(self, x, A):
-        x = torch.einsum('ncvl,nwv->ncwl', (x, A))
-        return x.contiguous()
-
-
-class dhgcn(nn.Module):
-    def __init__(self, c_in, c_out, dropout, order=2):
-        super(dhgcn, self).__init__()
-        self.d_un_nconv = d_un_nconv()
-        c_in = (order + 1) * c_in
-        self.mlp = linear_1(c_in, c_out)
-        self.dropout = dropout
-        self.order = order
-
-    def forward(self, x, G):
-        out = [x]
-        support = [G]
-        for a in support:
-            x1 = self.d_un_nconv(x, a)
-            out.append(x1)
-            for k in range(2, self.order + 1):
-                x2 = self.d_un_nconv(x1, a)
-                out.append(x2)
-                x1 = x2
-        h = torch.cat(out, dim=1)
-        h = self.mlp(h)
-        h = F.dropout(h, self.dropout, training=self.training)
-        return h
 
 
 class ddstgcn(nn.Module):
@@ -239,7 +233,7 @@ class ddstgcn(nn.Module):
         self.gate_convs = nn.ModuleList()
         self.skip_convs = nn.ModuleList()
         self.bn = nn.ModuleList()
-        self.conv_w = nn.ModuleList()
+        self.dgconv = nn.ModuleList()
         self.filter_convs_h = nn.ModuleList()
         self.gate_convs_h = nn.ModuleList()
         self.SAt_forward = nn.ModuleList()
@@ -285,12 +279,12 @@ class ddstgcn(nn.Module):
                                                    out_channels=dilation_channels,
                                                    kernel_size=(1, kernel_size), dilation=new_dilation))
 
-                self.SAt_forward.append(Spatial_Attention_layer( residual_channels, int(13-receptive_field+1),
+                self.SAt_forward.append(spatial_attention_layer( residual_channels, int(13-receptive_field+1),
                                                                  self.indices.size(1), num_nodes))
-                self.SAt_backward.append(Spatial_Attention_layer( residual_channels, int(13-receptive_field+1),
+                self.SAt_backward.append(spatial_attention_layer( residual_channels, int(13-receptive_field+1),
                                                                   self.indices.size(1), num_nodes))
                 receptive_field += (additional_scope * 2)
-                self.conv_w.append(wgcn(dilation_channels, int(residual_channels / 2), dropout))
+                self.dgconv.append(dgcn(dilation_channels, int(residual_channels / 2), dropout))
                 self.hgconv_edge_At_forward.append(hgcn_edge_At(residual_channels, 1, dropout))
                 self.hgconv_edge_At_backward.append(hgcn_edge_At(residual_channels, 1, dropout))
                 self.gconv_dgcn_w.append(
@@ -372,7 +366,7 @@ class ddstgcn(nn.Module):
             gate = self.gate_convs[i](residual)
             gate = torch.sigmoid(gate)
             x = filter * gate
-            x = self.conv_w[i](x, self.new_supports_w)
+            x = self.dgconv[i](x, self.new_supports_w)
             x = self.bn_g[i](x)
 
             dhgcn_w_input = residual
