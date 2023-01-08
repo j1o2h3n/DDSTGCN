@@ -10,7 +10,7 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 ## Requirements
 
 - python 3
-- see `[requirements.txt](requirements.txt)`
+- see [`requirements.txt`](requirements.txt)
 
 ## Train Commands
 
@@ -47,6 +47,7 @@ Download the datasets from Google Drive URL: https://drive.google.com/drive/fold
     │  engine.py
     │  model.py
     │  util.py
+	│  requirements.txt
     │  README.md
     │  LICENSE
     │
