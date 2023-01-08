@@ -22,7 +22,7 @@ OR
 python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
 ```
 
-To run different datasets, you need to modify the relevant parameters of the dataset, including '--data', '--adjdata', '--in_dim' and '--num_nodes'. The default is METR-LA dataset.
+To run different datasets, you need to modify the relevant parameters of the dataset, including `--data`, `--adjdata`, `--in_dim` and `--num_nodes`. The default is METR-LA dataset.
 
 
 ### Dataset
@@ -47,7 +47,7 @@ Download the datasets from Google Drive URL: https://drive.google.com/drive/fold
     │  engine.py
     │  model.py
     │  util.py
-	│  requirements.txt
+    │  requirements.txt
     │  README.md
     │  LICENSE
     │
