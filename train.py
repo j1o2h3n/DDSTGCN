@@ -2,9 +2,10 @@ import torch
 import numpy as np
 import argparse
 import time
+import os
 import util
 from engine import trainer
-import os
+
 
 
 parser = argparse.ArgumentParser()
@@ -25,6 +26,7 @@ parser.add_argument('--epochs',type=int,default=200,help='')
 parser.add_argument('--top_k',type=int,default=4,help='top-k sampling')
 parser.add_argument('--print_every',type=int,default=100,help='')
 parser.add_argument('--save',type=str,default='./garage/metr-la',help='save path')
+parser.add_argument('--seed',type=int,default=530302,help='random seed')
 
 
 args = parser.parse_args()
@@ -36,11 +38,9 @@ def setup_seed(seed):
     torch.cuda.manual_seed(seed) # GPU
     torch.cuda.manual_seed_all(seed) # multi-GPU
 
-seed = 530302
-setup_seed(seed)
-
 
 def main():
+    setup_seed(args.seed)
 
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
