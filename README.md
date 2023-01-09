@@ -37,7 +37,6 @@ To run different datasets, you need to modify the relevant parameters of the dat
 
 ### Dataset
 
-<pre align="center">
 |  Dataset |     --data    |           --adjdata          | --in_dim | --num_nodes |
 |:--------:|:-------------:|:----------------------------:|:--------:|:-----------:|
 |  METR-LA |  data/METR-LA |    data/METR-LA/adj_mx.pkl   |     2    |     207     |
@@ -46,7 +45,7 @@ To run different datasets, you need to modify the relevant parameters of the dat
 |  PEMS04  |  data/PEMS04  |  data/PEMS04/adj_pems04.pkl  |     1    |     307     |
 |  PEMS07  |  data/PEMS07  |  data/PEMS07/adj_pems07.pkl  |     1    |     883     |
 |  PEMS08  |  data/PEMS08  |  data/PEMS08/adj_pems08.pkl  |     1    |     170     |
-</pre>
+
 
 Download the datasets from Google Drive URL: https://drive.google.com/drive/folders/1uoY8ROQU73BqWyl566ZNdRBOOTM4T2DS?usp=sharing
 
