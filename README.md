@@ -23,12 +23,12 @@ You can install all the requirements by `python3 -m pip install -r requirements.
 
 ## Train Commands
 
-```sh
-$ python train.py
+```shell
+python train.py
 ```
 or
-```sh
-$ python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
+```shell
+python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
 ```
 
 
@@ -51,7 +51,7 @@ Download the datasets from Google Drive URL: https://drive.google.com/drive/fold
 
 ### Code Architecture
 
-```
+```tree
   DDSTGCN
     │  train.py
     │  engine.py
