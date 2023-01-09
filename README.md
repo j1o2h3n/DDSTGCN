@@ -108,7 +108,7 @@ Download the datasets from Google Drive URL: https://drive.google.com/drive/fold
 
 ## License
 
-Copyright (C) 2022 Jiang Xiangheng
+Copyright © 2022 Jiang Xiangheng
 
 This project is licensed under the [MIT license](LICENSE).
 
