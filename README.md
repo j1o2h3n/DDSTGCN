@@ -23,12 +23,12 @@ You can install all the requirements by `python3 -m pip install -r requirements.
 
 ## Train Commands
 
-```
-python train.py
+```sh
+$ python train.py
 ```
 or
-```
-python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
+```sh
+$ python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
 ```
 
 
