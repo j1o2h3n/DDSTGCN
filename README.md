@@ -1,6 +1,6 @@
 # DDSTGCN
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Last Commit](https://img.shields.io/github/last-commit/Aruelius/cloud189.svg)](https://github.com/j1o2h3n/DDSTGCN)
 
 [[Paper](https://ieeexplore.ieee.org/document/9912360)] [[Code](https://github.com/j1o2h3n/DDSTGCN)]
 
