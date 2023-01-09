@@ -1,6 +1,9 @@
 # DDSTGCN
 
-Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction](https://ieeexplore.ieee.org/document/9912360)," in IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 12, pp. 23680-23693, Dec. 2022, doi: 10.1109/TITS.2022.3208943.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[[Paper](https://ieeexplore.ieee.org/document/9912360)] [[Code](https://github.com/j1o2h3n/DDSTGCN)]
+
+Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction," in IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 12, pp. 23680-23693, Dec. 2022, doi: 10.1109/TITS.2022.3208943.
 
 <p align="center">
   <img width="826" height="303" src=./fig/picture.jpg>
@@ -10,7 +13,12 @@ Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "[Dual Dynami
 ## Requirements
 
 - python 3
-- see [`requirements.txt`](requirements.txt)
+- torch >= 1.7
+- numpy
+- scipy
+- argparse
+
+You can install all the requirements by `python3 -m pip install -r requirements.txt`.
 
 ## Train Commands
 
@@ -111,7 +119,7 @@ jiangxiangheng[at]gmail[dot]com
 
 
 ## Citation
-If this work is helpful for your research, please consider citing the following BibTeX entry in your manuscript:
+If our work is helpful for your research, please consider citing the following BibTeX entry in your manuscript:
 
 ```bibtex
 @article{sun2022dual,
