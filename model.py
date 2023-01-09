@@ -173,9 +173,9 @@ class dhgcn(nn.Module):
 
 
 
-class spatial_attention_layer(nn.Module):
+class spatial_attention(nn.Module):
     def __init__(self, in_channels, num_of_timesteps, num_of_edge, num_of_vertices):
-        super(spatial_attention_layer, self).__init__()
+        super(spatial_attention, self).__init__()
         self.W1 = nn.Parameter(torch.randn(num_of_timesteps).cuda(), requires_grad=True).cuda()
         self.W2 = nn.Parameter(torch.randn(num_of_timesteps).cuda(), requires_grad=True).cuda()
         self.W3 = nn.Parameter(torch.randn(in_channels,int(in_channels/2)).cuda(), requires_grad=True).cuda()
@@ -279,9 +279,9 @@ class ddstgcn(nn.Module):
                                                    out_channels=dilation_channels,
                                                    kernel_size=(1, kernel_size), dilation=new_dilation))
 
-                self.SAt_forward.append(spatial_attention_layer( residual_channels, int(13-receptive_field+1),
+                self.SAt_forward.append(spatial_attention( residual_channels, int(13-receptive_field+1),
                                                                  self.indices.size(1), num_nodes))
-                self.SAt_backward.append(spatial_attention_layer( residual_channels, int(13-receptive_field+1),
+                self.SAt_backward.append(spatial_attention( residual_channels, int(13-receptive_field+1),
                                                                   self.indices.size(1), num_nodes))
                 receptive_field += (additional_scope * 2)
                 self.dgconv.append(dgcn(dilation_channels, int(residual_channels / 2), dropout))
