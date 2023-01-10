@@ -35,7 +35,7 @@ python train.py --data "data/METR-LA" --adjdata "data/METR-LA/adj_mx.pkl" --in_d
 To run different datasets, you need to modify the relevant parameters of the dataset, including `--data`, `--adjdata`, `--in_dim` and `--num_nodes`. The default is METR-LA dataset.
 
 
-### Dataset
+### Datasets
 
 |  Dataset |     --data    |           --adjdata          | --in_dim | --num_nodes |
 |:--------:|:-------------:|:----------------------------:|:--------:|:-----------:|
