@@ -28,7 +28,7 @@ python train.py
 ```
 or
 ```shell
-python train.py --data=data/METR-LA --adjdata=data/METR-LA/adj_mx.pkl --in_dim=2 --num_nodes=207
+python train.py --data "data/METR-LA" --adjdata "data/METR-LA/adj_mx.pkl" --in_dim 2 --num_nodes 207
 ```
 
 
