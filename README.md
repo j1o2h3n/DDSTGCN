@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Last Commit](https://img.shields.io/github/last-commit/j1o2h3n/DDSTGCN.svg)](https://github.com/j1o2h3n/DDSTGCN) [![Issues](https://img.shields.io/github/issues/j1o2h3n/DDSTGCN?color=0088ff)](https://github.com/j1o2h3n/DDSTGCN/issues)
 
-[[Paper](https://ieeexplore.ieee.org/document/9912360)] [[Code](https://github.com/j1o2h3n/DDSTGCN)]
+[[Paper](https://ieeexplore.ieee.org/document/9912360)] [[Code](https://github.com/j1o2h3n/DDSTGCN)][[Google Scholar](https://scholar.google.com/scholar?q=Dual+Dynamic+Spatial-Temporal+Graph+Convolution+Network+for+Traffic+Prediction)]
 
 
 Y. Sun, X. Jiang, Y. Hu, F. Duan, K. Guo, B. Wang, J. Gao, B. Yin, "Dual Dynamic Spatial-Temporal Graph Convolution Network for Traffic Prediction," in IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 12, pp. 23680-23693, Dec. 2022, doi: 10.1109/TITS.2022.3208943.
